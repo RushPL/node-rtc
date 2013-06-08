@@ -2,7 +2,7 @@
   "targets": [
     {
       "target_name": "rtc",
-      "sources": [ "src/rtc.cpp" ]
+      "sources": [ "src/PeerConnection.cpp" , "src/rtc.cpp" ]
     }
   ]
 }
