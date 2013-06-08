@@ -1,5 +1,5 @@
-#include <igloo/igloo_alt.h>
 #include "../src/Client.h"
+#include <igloo/igloo_alt.h>
 
 using namespace igloo;
 

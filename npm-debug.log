@@ -1,0 +1,49 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/Cellar/node/0.8.18/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install' ]
+2 info using npm@1.2.2
+3 info using node@v0.8.18
+4 verbose read json /Users/helloiampau/Develop/node-rtc/package.json
+5 warn package.json node-rtc@0.0.1 No README.md file found!
+6 verbose readDependencies using package.json deps
+7 verbose install where, deps [ '/Users/helloiampau/Develop/node-rtc', [ 'node-gyp' ] ]
+8 verbose from cache /Users/helloiampau/Develop/node-rtc/package.json
+9 info preinstall node-rtc@0.0.1
+10 verbose read json /Users/helloiampau/Develop/node-rtc/node_modules/node-gyp/package.json
+11 verbose from cache /Users/helloiampau/Develop/node-rtc/package.json
+12 verbose readDependencies using package.json deps
+13 verbose read json /Users/helloiampau/Develop/node-rtc/node_modules/.bin/package.json
+14 verbose from cache /Users/helloiampau/Develop/node-rtc/node_modules/node-gyp/package.json
+15 verbose already installed skipping node-gyp@~0.10.0 /Users/helloiampau/Develop/node-rtc
+16 silly resolved []
+17 info build /Users/helloiampau/Develop/node-rtc
+18 verbose from cache /Users/helloiampau/Develop/node-rtc/package.json
+19 verbose linkStuff [ false, false, false, '/Users/helloiampau/Develop' ]
+20 info linkStuff node-rtc@0.0.1
+21 verbose linkBins node-rtc@0.0.1
+22 verbose linkMans node-rtc@0.0.1
+23 verbose rebuildBundles node-rtc@0.0.1
+24 verbose rebuildBundles [ '.bin', 'node-gyp' ]
+25 info install node-rtc@0.0.1
+26 verbose unsafe-perm in lifecycle true
+27 silly exec sh "-c" "node-gyp rebuild"
+28 silly sh,-c,node-gyp rebuild,/Users/helloiampau/Develop/node-rtc spawning
+29 info node-rtc@0.0.1 Failed to exec install script
+30 error node-rtc@0.0.1 install: `node-gyp rebuild`
+30 error `sh "-c" "node-gyp rebuild"` failed with 1
+31 error Failed at the node-rtc@0.0.1 install script.
+31 error This is most likely a problem with the node-rtc package,
+31 error not with npm itself.
+31 error Tell the author that this fails on your system:
+31 error     node-gyp rebuild
+31 error You can get their info via:
+31 error     npm owner ls node-rtc
+31 error There is likely additional logging output above.
+32 error System Darwin 12.3.0
+33 error command "/usr/local/Cellar/node/0.8.18/bin/node" "/usr/local/bin/npm" "install"
+34 error cwd /Users/helloiampau/Develop/node-rtc
+35 error node -v v0.8.18
+36 error npm -v 1.2.2
+37 error code ELIFECYCLE
+38 verbose exit [ 1, true ]
