@@ -9,6 +9,9 @@ build:
 	./node_modules/.bin/node-gyp configure
 	./node_modules/.bin/node-gyp build
 
+test:
+	./build/Release/client.test.run
+
 clean:
 	./node_modules/.bin/node-gyp clean
 
