@@ -1,23 +1,37 @@
-#ifndef PEERCONNECTION_CLIENT_H
-#define PEERCONNECTION_CLIENT_H
+#ifndef NODE_RTC_CLIENT_H
+#define NODE_RTC_CLIENT_H
 
+#include <talk/app/webrtc/peerconnectioninterface.h>
 #include <node.h>
-#include "../3d_party/libjingle/trunk/talk/app/webrtc/peerconnection.h"
 
-class Client : public node::ObjectWrap {
+class Client : 
+  public webrtc::PeerConnectionObserver, 
+  public webrtc::CreateSessionDescriptionObserver,
+  public node::ObjectWrap {
+  
   public:
+    Client(const v8::Arguments& args);
     static void Init(v8::Handle<v8::Object> exports);
+
   private:
-    Client();
-    ~Client();
-    
-    // New Object
     static v8::Handle<v8::Value> New(const v8::Arguments& args);
 
-    // fake method
-    //static v8::Handle<v8::Value> PlusOne(const v8::Arguments& args);
+    void beInitiator();
+    void onLocalDescription(const std::string type, const std::string sdp);
+    void onRemoteDescription(const std::string type, const std::string sdp);
+    
 
-    webrtc::PeerConnection* pc;
+    // Implements PeerConnectionObserver virtual class
+    virtual void OnError();
+    virtual void OnAddStream(webrtc::MediaStreamInterface* stream);
+    virtual void OnRemoveStream(webrtc::MediaStreamInterface* stream);
+    virtual void OnIceCandidate(const webrtc::IceCandidateInterface* candidate);
+
+    // Implements CreateSessionDescriptionObserver virtual class
+    virtual void OnSuccess(webrtc::SessionDescriptionInterface* desc);
+    virtual void OnFailure(const std::string& error);
+
+    talk_base::scoped_refptr<webrtc::PeerConnectionInterface> peerConnection;
 };
 
 #endif
