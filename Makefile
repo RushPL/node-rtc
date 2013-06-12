@@ -10,7 +10,7 @@ deps:
 	cd 3d_party/libjingle/trunk; make;
 
 build:
-	./node_modules/.bin/node-gyp configure
+	./node_modules/.bin/node-gyp --arch=i386 configure
 	./node_modules/.bin/node-gyp build
 
 test:

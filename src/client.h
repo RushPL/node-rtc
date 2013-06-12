@@ -4,22 +4,25 @@
 #include <talk/app/webrtc/peerconnectioninterface.h>
 #include <node.h>
 
+class onSessionDescriptionSet : public webrtc::SetSessionDescriptionObserver {
+  virtual void OnSuccess() {
+    puts("Description setted");
+  }
+
+  virtual void OnFailure(const std::string& error) {
+    puts("Error setting description");
+  }
+};
+
 class Client : 
-  public webrtc::PeerConnectionObserver, 
-  public webrtc::CreateSessionDescriptionObserver,
-  public node::ObjectWrap {
+  public webrtc::PeerConnectionObserver {
+  //public webrtc::CreateSessionDescriptionObserver {
   
   public:
-    Client(const v8::Arguments& args);
-    static void Init(v8::Handle<v8::Object> exports);
-
-  private:
-    static v8::Handle<v8::Value> New(const v8::Arguments& args);
-
+    Client();
     void beInitiator();
     void onLocalDescription(const std::string type, const std::string sdp);
     void onRemoteDescription(const std::string type, const std::string sdp);
-    
 
     // Implements PeerConnectionObserver virtual class
     virtual void OnError();
@@ -28,10 +31,12 @@ class Client :
     virtual void OnIceCandidate(const webrtc::IceCandidateInterface* candidate);
 
     // Implements CreateSessionDescriptionObserver virtual class
-    virtual void OnSuccess(webrtc::SessionDescriptionInterface* desc);
-    virtual void OnFailure(const std::string& error);
+    //virtual void OnSuccess(webrtc::SessionDescriptionInterface* desc);
+    //virtual void OnFailure(const std::string& error);
 
+  private:
     talk_base::scoped_refptr<webrtc::PeerConnectionInterface> peerConnection;
+    
 };
 
 #endif
