@@ -13,10 +13,17 @@ build:
 	./node_modules/.bin/node-gyp --arch=i386 configure
 	./node_modules/.bin/node-gyp build
 
+speedytest:
+	arch --i386 node ./test.js
+
+clientpure:
+	cd src; make;
+	./src/clientpure
+
 test:
 	./build/Release/client.test.run
 
 clean:
 	./node_modules/.bin/node-gyp clean
 
-.PHONY: build clean prepare deps test
+.PHONY: build clean prepare deps test speedytest

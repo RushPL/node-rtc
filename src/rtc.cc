@@ -1,39 +1,52 @@
 #define BUILDING_NODE_EXTENSION
 #include <node.h>
+//#include <talk/base/thread.h>
 #include "client.h"
 
 using namespace v8;
 
-class Wrapper : public Client, public node::ObjectWrap {
+//class Wrapper : public Client, public node::ObjectWrap {
 
-  public:
-    static void Init(Handle<Object> exports) {
-      Local<FunctionTemplate> tpl = FunctionTemplate::New(New);
-      tpl->SetClassName(String::NewSymbol("Client"));
-      tpl->InstanceTemplate()->SetInternalFieldCount(1);
+  //public:
+    //static void Init(Handle<Object> exports) {
+      //Local<FunctionTemplate> tpl = FunctionTemplate::New(New);
+      //tpl->SetClassName(String::NewSymbol("Client"));
+      //tpl->InstanceTemplate()->SetInternalFieldCount(1);
  
-      //tpl->PrototypeTemplate()->Set(String::NewSymbol("beInitiator"), FunctionTemplate::New(beInitiator)->GetFunction());
+      //tpl->PrototypeTemplate()->Set(String::NewSymbol("beInitiator"), FunctionTemplate::New(beInitiatorCaller)->GetFunction());
     
-      Persistent<Function> constructor = Persistent<Function>::New(tpl->GetFunction());
-     exports->Set(String::NewSymbol("Client"), constructor);
-    }
+      //Persistent<Function> constructor = Persistent<Function>::New(tpl->GetFunction());
+      //exports->Set(String::NewSymbol("Client"), constructor);
+    //}
+    
 
-  private:
-    static Handle<Value> New(const Arguments& args) {
+  //private:
+    //static Handle<Value> New(const Arguments& args) {
     
-      v8::HandleScope scope;
+      //HandleScope scope;
     
-      //talk_base::scoped_refptr<Client> client(new talk_base::RefCountedObject<Client>());
-      Wrapper* client = new Wrapper();
-      client->Wrap(args.This());
+      //talk_base::scoped_refptr<Wrapper> client = new talk_base::RefCountedObject<Wrapper>();
+      //client->AddRef();
+      //client->Wrap(args.This());
   
-      return args.This();
-    }
+      //return args.This();
+    //}
 
-};
+    //static Handle<Value> beInitiatorCaller(const Arguments& args) {
+      //HandleScope scope;
+
+      //Wrapper* client = ObjectWrap::Unwrap<Wrapper>(args.This());
+      ////client->beInitiator();
+      //printf("%d", client->a);
+
+      //return scope.Close(Boolean::New(true));
+    //}
+
+//};
 
 void InitAll(Handle<Object> exports) {
-  Wrapper::Init(exports);
+  //Wrapper::Init(exports);
+  Client::Init(exports);
 }
 
 NODE_MODULE(rtc, InitAll)

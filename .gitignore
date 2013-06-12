@@ -3,3 +3,4 @@ build/
 .DS_Store
 3d_party/libjingle/
 npm-debug.log
+src/clientpure
