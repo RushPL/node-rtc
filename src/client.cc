@@ -106,10 +106,10 @@ void Client::OnRemoveStream(webrtc::MediaStreamInterface* stream) {
 void Client::OnIceCandidate(const webrtc::IceCandidateInterface* candidate) {
   puts("called PeerConnectionObserver::OnIceCandidate");
 
-  //std::string* candAsString = new std::string();
-  //candidate->ToString(candAsString);
+  std::string* candAsString = new std::string();
+  candidate->ToString(candAsString);
 
-  //puts(candAsString->c_str());
+  puts(candAsString->c_str());
 }
 
 /*
@@ -125,19 +125,7 @@ void Client::OnSuccess(webrtc::SessionDescriptionInterface* desc) {
   std::string* descAsString = new std::string();
   desc->ToString(descAsString);
 
-  puts("Description serialized");
-
-  //Local<Value> argv[] = { Local<Value>::New(String::New(descAsString->c_str())) };
-
-  Local<Value> argv[] = {};
-  puts("ready to run");
-
-  //this->onDescriptionReadyCallback->Call(Context::GetCurrent()->Global(), 0, argv);
-  //puts(descAsString->c_str());
-  //Client::runCallback(this->onDescriptionReadyCallback);
-  
-  talk_base::scoped_refptr<Client> client = static_cast< talk_base::scoped_refptr<Client> >(this);
-  client->onDescriptionReadyCallback->Call(Context::GetCurrent()->Global(), 0, argv);
+  puts(descAsString->c_str());
 
 }
 
@@ -148,27 +136,6 @@ void Client::OnFailure(const std::string& error) {
 
 
 
-//Client::Client() {
-  //this->peerConnectionFactory = webrtc::CreatePeerConnectionFactory();
-  //puts("Say hello to my new sparkling PeerConnectionFactory");
-
-  //webrtc::PeerConnectionInterface::IceServers servers;
-  //webrtc::PeerConnectionInterface::IceServer server;
-  //server.uri = "stun:stun.l.google.com:19302";
-  //servers.push_back(server);
-  //this->peerConnection = peerConnectionFactory->CreatePeerConnection(servers, NULL, this);
-  //puts("And here we have PeerConnection!");
-
-  //this->a = 5;
-  //printf("%d", this->a);
-//}
-
-//void Client::beInitiator() {
-  //puts("called");
-  //this->peerConnection->CreateOffer(this, NULL);
-  //puts("ends");
-
-//}
 
 //void Client::onRemoteDescription(const std::string type, const std::string sdp) {
   //webrtc::SessionDescriptionInterface* desc(webrtc::CreateSessionDescription(type, sdp));
@@ -183,52 +150,4 @@ void Client::OnFailure(const std::string& error) {
   //this->peerConnection->SetLocalDescription(new talk_base::RefCountedObject<onSessionDescriptionSet>(), desc);
 //}
 
-/*
- *  Implements PeerConnectionObserver virtual class
- */
-//void Client::OnError() {
-  //puts("called PeerConnectionObserver::OnError");
-//}
 
-//void Client::OnAddStream(webrtc::MediaStreamInterface* stream) {
-  //puts("called PeerConnectionObserver::OnAddStream");
-//}
-
-//void Client::OnRemoveStream(webrtc::MediaStreamInterface* stream) {
-  //puts("called PeerConnectionObserver::OnRemoveStream");
-//}
-
-//void Client::OnIceCandidate(const webrtc::IceCandidateInterface* candidate) {
-  //puts("called PeerConnectionObserver::OnIceCandidate");
-
-  //std::string* candAsString = new std::string();
-  //candidate->ToString(candAsString);
-
-  //puts(candAsString->c_str());
-//}
-
-/*
- *  Implements CreateSessionDescriptionObserver virtual class
- */
-//void Client::OnSuccess(webrtc::SessionDescriptionInterface* desc) {
-  //puts("called CreateSessionDescriptionObserver::OnSuccess");
-
-  //this->peerConnection->SetLocalDescription(new talk_base::RefCountedObject<onSessionDescriptionSet>(), desc);
-
-  //std::string* descAsString = new std::string();
-  //desc->ToString(descAsString);
-
-  //puts(descAsString->c_str());
-//}
-
-//void Client::OnFailure(const std::string& error) {
-  //puts("called CreateSessionDescriptionObserver::OnFailure");
-//}
-
-//int main() {
-  //talk_base::scoped_refptr<Client> client = new talk_base::RefCountedObject<Client>();
-  //client->beInitiator();
-
-  //talk_base::Thread::Current()->SleepMs(10000);
-
-//}

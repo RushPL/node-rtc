@@ -14,32 +14,6 @@ class onSessionDescriptionSet : public webrtc::SetSessionDescriptionObserver {
   }
 };
 
-//class Client :
-  //public webrtc::PeerConnectionObserver,
-  //public webrtc::CreateSessionDescriptionObserver {
-  
-  //public:
-    //Client();
-    //void beInitiator();
-    //void onLocalDescription(const std::string type, const std::string sdp);
-    //void onRemoteDescription(const std::string type, const std::string sdp);
-
-    //// Implements PeerConnectionObserver virtual class
-    //virtual void OnError();
-    //virtual void OnAddStream(webrtc::MediaStreamInterface* stream);
-    //virtual void OnRemoveStream(webrtc::MediaStreamInterface* stream);
-    //virtual void OnIceCandidate(const webrtc::IceCandidateInterface* candidate);
-
-    //// Implements CreateSessionDescriptionObserver virtual class
-    //virtual void OnSuccess(webrtc::SessionDescriptionInterface* desc);
-    //virtual void OnFailure(const std::string& error);
-
-  //private:
-    //talk_base::scoped_refptr<webrtc::PeerConnectionInterface> peerConnection;
-    //talk_base::scoped_refptr<webrtc::PeerConnectionFactoryInterface> peerConnectionFactory;
-
-//};
-
 class Client : 
   public node::ObjectWrap,
   public webrtc::PeerConnectionObserver,
