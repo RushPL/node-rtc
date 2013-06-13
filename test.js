@@ -1,7 +1,17 @@
 var a = require("./build/Release/rtc.node");
 
-var c = new a.Client();
+var initiator = new a.Client();
 
-//c.setOnDescriptionReadyCallback(function(desc) { console.log("Called setOnDescriptionReadyCallback"); console.log(desc); })
+var responder = new a.Client();
 
-c.beInitiator();
+var onInitiatorIceCandidateCallback = function(desc) {
+  console.log("Called onIceCandidateCallback");
+  console.log(desc);
+}
+
+var onInitiatorSessionDescriptionCallback = function(sdp) {
+  console.log("Called onSessionDescriptionReady");
+  console.log(sdp);
+}
+
+initiator.beInitiator(onInitiatorSessionDescriptionCallback, onInitiatorIceCandidateCallback);
