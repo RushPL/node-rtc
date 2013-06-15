@@ -47,6 +47,7 @@ Handle<Value> Client::New(const Arguments& args) {
   servers.push_back(server);
 
   client->peerConnection = peerConnectionFactory->CreatePeerConnection(servers, NULL, client);
+  client->peerConnection->AddRef();
 
   puts("And here we have PeerConnection!");
 

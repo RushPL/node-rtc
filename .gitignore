@@ -2,5 +2,7 @@ node_modules/
 build/
 .DS_Store
 3d_party/libjingle/
+3d_party/googlemock/
+3d_party/googletest/
 npm-debug.log
 src/clientpure
