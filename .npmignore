@@ -1,0 +1,6 @@
+node_modules/
+build/
+.DS_Store
+3d_party/
+npm-debug.log
+src/clientpure

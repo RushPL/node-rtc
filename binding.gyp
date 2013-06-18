@@ -9,7 +9,7 @@
           "../3d_party/libjingle/trunk/out/Debug/libyuv.a",
           "../3d_party/libjingle/trunk/out/Debug/libvideo_engine_core.a",
           "../3d_party/libjingle/trunk/out/Debug/libwebrtc_utility.a",
-          "../3d_party/libjingle/trunk/out/Debug/libvoice_engine_core.a",
+          "../3d_party/libjingle/trunk/out/Debug/libvoice_engine.a",
           "../3d_party/libjingle/trunk/out/Debug/libcommon_audio.a",
           "../3d_party/libjingle/trunk/out/Debug/libsystem_wrappers.a",
           "../3d_party/libjingle/trunk/out/Debug/libpaced_sender.a",
@@ -50,15 +50,7 @@
           "../3d_party/libjingle/trunk/out/Debug/libvpx.a",
           "../3d_party/libjingle/trunk/out/Debug/libvpx_intrinsics_sse2.a",
           "../3d_party/libjingle/trunk/out/Debug/libvpx_intrinsics_mmx.a",
-          "../3d_party/libjingle/trunk/out/Debug/libvpx_intrinsics_ssse3.a",
-          "$(SDKROOT)/System/Library/Frameworks/Cocoa.framework",
-          "$(SDKROOT)/System/Library/Frameworks/QTKit.framework",
-          "$(SDKROOT)/System/Library/Frameworks/QuartzCore.framework",
-          "$(SDKROOT)/System/Library/Frameworks/CoreAudio.framework",
-          "$(SDKROOT)/System/Library/Frameworks/AudioToolbox.framework",
-          "$(SDKROOT)/System/Library/Frameworks/IOKit.framework",
-          "$(SDKROOT)/System/Library/Frameworks/Carbon.framework",
-          "$(SDKROOT)/System/Library/Frameworks/OpenGL.framework"
+          "../3d_party/libjingle/trunk/out/Debug/libvpx_intrinsics_ssse3.a"
         ]
       },
       "sources": [
@@ -68,6 +60,21 @@
       "include_dirs": [ "3d_party/libjingle/trunk/" ],
       "defines": [
         "POSIX"
+      ],
+      "conditions": [
+        [ "OS == 'mac'", {
+            "libraries": [
+              "$(SDKROOT)/System/Library/Frameworks/Cocoa.framework",
+              "$(SDKROOT)/System/Library/Frameworks/QTKit.framework",
+              "$(SDKROOT)/System/Library/Frameworks/QuartzCore.framework",
+              "$(SDKROOT)/System/Library/Frameworks/CoreAudio.framework",
+              "$(SDKROOT)/System/Library/Frameworks/AudioToolbox.framework",
+              "$(SDKROOT)/System/Library/Frameworks/IOKit.framework",
+              "$(SDKROOT)/System/Library/Frameworks/Carbon.framework",
+              "$(SDKROOT)/System/Library/Frameworks/OpenGL.framework"
+            ]
+          }
+        ]
       ]
     }
   ]

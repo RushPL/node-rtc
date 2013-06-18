@@ -1,15 +1,20 @@
 {
   "name": "node-rtc",
-  "version": "0.0.1",
+  "version": "0.0.3-4",
   "description": "WebRTC stack for node.js",
   "repository": {
     "type": "git",
-    "url": "repo_url"
+    "url": "https://github.com/helloIAmPau/node-rtc.git"
   },
+  "scripts": {
+    "preinstall" : "make npm",
+    "preuninstall" : "rm -rf build/*"
+  },
+  "main": "./build/Release/rtc.node",
   "author": "Pasquale Boemio <boemianrapsodi@gmail.com>",
   "license": "MIT",
   "readmeFilename": "README.md",
-  "dependencies": {
+  "devDependencies": {
     "node-gyp": "~0.10.0"
   }
 }

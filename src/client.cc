@@ -46,7 +46,7 @@ Handle<Value> Client::New(const Arguments& args) {
   server.uri = "stun:stun.l.google.com:19302";
   servers.push_back(server);
 
-  client->peerConnection = peerConnectionFactory->CreatePeerConnection(servers, NULL, client);
+  client->peerConnection = peerConnectionFactory->CreatePeerConnection(servers, NULL, NULL, client);
   client->peerConnection->AddRef();
 
   puts("And here we have PeerConnection!");
