@@ -6,15 +6,12 @@
     "type": "git",
     "url": "https://github.com/helloIAmPau/node-rtc.git"
   },
-  "scripts": {
-    "preinstall" : "make npm",
-    "preuninstall" : "rm -rf build/*"
-  },
   "main": "./build/Release/rtc.node",
   "author": "Pasquale Boemio <boemianrapsodi@gmail.com>",
   "license": "MIT",
   "readmeFilename": "README.md",
   "devDependencies": {
-    "node-gyp": "~0.10.0"
+    "mocha": "~1.11.0",
+    "chai": "~1.7.0"
   }
 }
