@@ -16,6 +16,8 @@ build:
 	./node_modules/.bin/node-gyp build
 
 clean:
+	rm -rf ./3d_party/libjingle/trunk/out/
+	cd ./3d_party/openssl; make clean
 	./node_modules/.bin/node-gyp clean
 
 .PHONY: build clean prepare deps test
