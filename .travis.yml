@@ -7,7 +7,7 @@ before_script:
  - sudo apt-get install -qq libnss3 libnss3-dev libnss3-tools
 branches:
   only:
-    - master
+    - dev
 notifications:
   recipients:
     - boemianrapsodi@gmail.com
