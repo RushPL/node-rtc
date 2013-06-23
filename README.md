@@ -6,7 +6,7 @@ WebRTC stack for node.js.
 The main goal of the project is to build a bind of RTCPeerconnection API for node.js in order to write javascript clients that work both browser and server side.
 
 * **Travis CI status is** [![Build Status](https://travis-ci.org/helloIAmPau/node-rtc.png?branch=dev)](https://travis-ci.org/helloIAmPau/node-rtc)
-* **Latest npm published version is** [![NPM version](https://badge.fury.io/js/node-rtc.png)](http://badge.fury.io/js/node-rtc)
+* **Latest published version is** [![NPM version](https://badge.fury.io/js/node-rtc.png)](http://badge.fury.io/js/node-rtc)
 
 ## Steps:
 
