@@ -43,7 +43,6 @@
           "../3d_party/openssl/libssl.a",
           "../3d_party/openssl/libcrypto.a",
           "../3d_party/libjingle/trunk/out/Debug/libjingle_p2p.a",
-          "../3d_party/libjingle/trunk/out/Debug/libexpat.a",
           "../3d_party/libjingle/trunk/out/Debug/libjpeg_turbo.a",
           "../3d_party/libjingle/trunk/out/Debug/libsrtp.a",
           "../3d_party/libjingle/trunk/out/Debug/libopus.a",
@@ -64,6 +63,7 @@
       "conditions": [
         [ "OS == 'mac'", {
             "libraries": [
+              "../3d_party/libjingle/trunk/out/Debug/libexpat.a",
               "$(SDKROOT)/System/Library/Frameworks/Cocoa.framework",
               "$(SDKROOT)/System/Library/Frameworks/QTKit.framework",
               "$(SDKROOT)/System/Library/Frameworks/QuartzCore.framework",
