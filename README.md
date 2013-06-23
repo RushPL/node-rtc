@@ -16,7 +16,7 @@ The main goal of the project is to build a bind of RTCPeerconnection API for nod
 - [ ] Use Mocha for integration test
 - [ ] Bind default api to Node.js
 
-## Deps:
+## [Linux] Deps:
 
 some additional packets are required to enable audio/video features of peerconnection
 
