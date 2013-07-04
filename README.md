@@ -1,6 +1,9 @@
 node-rtc
 ========
 
+Help this project:
+https://www.bountysource.com/#fundraisers/377-nodertc
+
 WebRTC stack for node.js
 
 Don't use it!
