@@ -1,6 +1,8 @@
 node-rtc
 ========
 
+Help this project: https://www.bountysource.com/#fundraisers/377-nodertc
+
 WebRTC stack for node.js.
 
 The main goal of the project is to build a bind of RTCPeerconnection API for node.js in order to write javascript clients working both browser and server side.
