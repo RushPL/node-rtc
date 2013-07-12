@@ -6,3 +6,4 @@ build/
 3d_party/googletest/
 npm-debug.log
 src/clientpure
+test/testall
