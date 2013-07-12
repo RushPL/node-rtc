@@ -14,8 +14,7 @@ The main goal of the project is to build a bind of RTCPeerconnection API for nod
 
 - [x] Build on Linux/Mac
 - [x] Integrate Travis CI
-- [ ] Use Google Mockup/Test for unit test
-- [ ] Use Mocha for integration test
+- [x] Use Mocha for testing
 - [ ] Bind default api to Node.js
 
 ## [Linux] Deps:
