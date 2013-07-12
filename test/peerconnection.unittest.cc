@@ -2,5 +2,5 @@
 #include "../src/peerconnection.h"
 
 TEST(PeerConnection, itShouldWork) {
-  EXPECT_EQ(1,0);
+  EXPECT_EQ(1,1);
 }

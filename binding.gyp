@@ -53,7 +53,7 @@
         ]
       },
       "sources": [
-        "src/client.cc",
+        "src/peerconnection.cc",
         "src/rtc.cc"
       ],
       "include_dirs": [ "3d_party/libjingle/trunk/" ],

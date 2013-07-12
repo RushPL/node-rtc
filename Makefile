@@ -1,4 +1,4 @@
-all: prepare deps build
+all: prepare deps build test
 
 prepare:
 	git submodule update --init
