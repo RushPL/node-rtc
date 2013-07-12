@@ -5,7 +5,7 @@
 using namespace v8;
 
 void InitAll(Handle<Object> exports) {
-  //Client::Init(exports);
+  NodeRTCPeerconnection::Init(exports);
 }
 
 NODE_MODULE(rtc, InitAll)

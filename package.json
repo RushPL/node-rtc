@@ -12,6 +12,7 @@
   "readmeFilename": "README.md",
   "devDependencies": {
     "mocha": "~1.11.0",
-    "chai": "~1.7.0"
+    "chai": "~1.7.0",
+    "sandboxed-module": "~0.2.1"
   }
 }
