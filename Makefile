@@ -63,7 +63,7 @@ build:
 	./node_modules/.bin/node-gyp build
 
 test: build
-	arch -32 node ./node_modules/mocha/bin/_mocha
+	arch --i386 node ./node_modules/mocha/bin/_mocha
 #cd build; export NODE_HEADERS="`make -pn  | grep 'INCS_Release' | sed 's/INCS_Release :=//'`"; cd ../test; g++ $$NODE_HEADERS -I ../3d_party/googlemock/trunk/include/ -I ../3d_party/googletest/trunk/include/ main.unittest.cc  ../3d_party/googletest/trunk/make/gtest-all.o ../src/peerconnection.cc -o testall && ./testall
 
 clean:
