@@ -4,17 +4,6 @@ compiler:
 script: make
 before_script:
  - sudo apt-get update -qq
- - sudo apt-get install -qq gcc-multilib g++-multilib
- - mkdir node86
- - git clone git://github.com/joyent/node.git
- - cd node
- - git checkout v0.10.10-release
- - ./configure --prefix `pwd`/../node86 --dest-cpu ia32
- - make
- - make install
- - cd ..
- - export PATH="`pwd`/node86/bin:$PATH"
- - file `which node`
  - sudo apt-get install -qq libnss3 libnss3-dev libnss3-tools libasound2 libasound2-dev libpulse-dev libpulse0
 notifications:
   recipients:

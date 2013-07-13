@@ -60,7 +60,6 @@
       "defines": [
         "POSIX"
       ],
-      "architecture": "i386",
       "conditions": [
         [ "OS == 'mac'", {
             "libraries": [
