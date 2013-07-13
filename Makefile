@@ -63,6 +63,7 @@ ifeq ($(shell uname -s),Darwin)
 	arch --i386 node ./node_modules/mocha/bin/_mocha
 endif
 ifeq ($(TRAVIS), true)
+	file build/Release/rtc.node
 	PATH="`pwd`/../node86/bin:$$PATH" ./node_modules/.bin/mocha
 endif
 ifeq ($(shell uname -s),Linux)
