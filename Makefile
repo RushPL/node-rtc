@@ -56,7 +56,7 @@ ifeq ($(shell uname -s),Linux)
 	cp ./3d_party/libjingle/trunk/out/Debug/obj.target/third_party/libvpx/libvpx_intrinsics_mmx.a ./3d_party/libjingle/trunk/out/Debug/
 	cp ./3d_party/libjingle/trunk/out/Debug/obj.target/third_party/libvpx/libvpx_intrinsics_ssse3.a ./3d_party/libjingle/trunk/out/Debug/
 endif
-	npm install node-gyp
+	npm install
 
 build:
 	./node_modules/.bin/node-gyp --arch=i386 configure

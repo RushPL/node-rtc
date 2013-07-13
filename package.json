@@ -13,6 +13,7 @@
   "devDependencies": {
     "mocha": "~1.11.0",
     "chai": "~1.7.0",
-    "sandboxed-module": "~0.2.1"
+    "sandboxed-module": "~0.2.1",
+    "node-gyp": "~0.10.6"
   }
 }
