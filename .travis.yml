@@ -8,6 +8,7 @@ before_script:
  - mkdir node86
  - git clone git://github.com/joyent/node.git
  - cd node
+ - git checkout v0.10.10-release
  - ./configure --prefix `pwd`/../node86 --dest-cpu ia32
  - make
  - make install
