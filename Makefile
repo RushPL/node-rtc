@@ -1,15 +1,11 @@
-all: prepare deps build test
+all: prepare deps test
 
 prepare:
 	git submodule update --init
 	mkdir -p ./3d_party/libjingle; cd ./3d_party/libjingle; ../depot_tools/gclient config http://libjingle.googlecode.com/svn/trunk; GYP_GENERATORS=make ../depot_tools/gclient sync --force;
-	#mkdir -p ./3d_party/googletest; cd ./3d_party/googletest; ../depot_tools/gclient config http://googletest.googlecode.com/svn/trunk/; GYP_GENERATORS=make ../depot_tools/gclient sync --force;
-	#mkdir -p ./3d_party/googlemock; cd ./3d_party/googlemock; ../depot_tools/gclient config http://googlemock.googlecode.com/svn/trunk/; GYP_GENERATORS=make ../depot_tools/gclient sync --force;
 
 deps:
 	cd 3d_party/openssl; ./config; make;
-	#cd 3d_party/googletest/trunk/make; make;
-	#cd 3d_party/googlemock/trunk/; ln -s ../../googletest/trunk/ gtest; cd make; make
 	cd 3d_party/libjingle/trunk; make libjingle_peerconnection libjingle_media libyuv video_engine_core webrtc_utility voice_engine common_audio system_wrappers paced_sender video_render_module video_capture_module common_video common_audio_sse2 audio_processing audio_processing_sse2 protobuf_lite remote_bitrate_estimator audio_conference_mixer audio_coding_module CNG G711 iSAC NetEq webrtc_opus bitrate_controller webrtc_video_coding webrtc_vp8 webrtc_i420 video_coding_utility audio_device video_processing video_processing_sse2 rtp_rtcp media_file audioproc_debug_proto libjingle libjingle_p2p expat libjpeg libsrtp opus libvpx libvpx_intrinsics_sse2 libvpx_intrinsics_mmx libvpx_intrinsics_ssse3
 ifeq ($(shell uname -s),Linux)
 	cp ./3d_party/libjingle/trunk/out/Debug/obj.target/talk/libjingle_peerconnection.a ./3d_party/libjingle/trunk/out/Debug/
@@ -65,15 +61,16 @@ build:
 test: build
 ifeq ($(shell uname -s),Darwin)
 	arch --i386 node ./node_modules/mocha/bin/_mocha
-else
+endif
+ifeq ($(TRAVIS), true)
+	PATH="`pwd`/../node86/bin:$$PATH" ./node_modules/.bin/mocha
+endif
+ifeq ($(shell uname -s),Linux)
 	./node_modules/.bin/mocha
 endif
-	#cd build; export NODE_HEADERS="`make -pn  | grep 'INCS_Release' | sed 's/INCS_Release :=//'`"; cd ../test; g++ $$NODE_HEADERS -I ../3d_party/googlemock/trunk/include/ -I ../3d_party/googletest/trunk/include/ main.unittest.cc  ../3d_party/googletest/trunk/make/gtest-all.o ../src/peerconnection.cc -o testall && ./testall
 
 clean:
 	rm -rf ./3d_party/libjingle/trunk/out/
-	#cd 3d_party/googletest/trunk/make; make clean;
-	#cd 3d_party/googlemock/trunk/make; make clean; rm -f ../gtest
 	rm -rf ./test/testall
 	cd ./3d_party/openssl; make clean
 	./node_modules/.bin/node-gyp clean
