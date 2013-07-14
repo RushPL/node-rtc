@@ -55,16 +55,16 @@ endif
 	npm install
 
 build:
+ifeq ($(shell uname -s),Darwin)
 	./node_modules/.bin/node-gyp --arch=i386 configure
+else
+	/node_modules/.bin/node-gyp configure
+endif
 	./node_modules/.bin/node-gyp build
 
 test: build
 ifeq ($(shell uname -s),Darwin)
 	arch --i386 node ./node_modules/mocha/bin/_mocha
-endif
-ifeq ($(TRAVIS), true)
-	file build/Release/rtc.node
-	PATH="`pwd`/../node86/bin:$$PATH" ./node_modules/.bin/mocha
 endif
 ifeq ($(shell uname -s),Linux)
 	./node_modules/.bin/mocha
