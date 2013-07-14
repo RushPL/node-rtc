@@ -58,7 +58,7 @@ build:
 ifeq ($(shell uname -s),Darwin)
 	./node_modules/.bin/node-gyp --arch=i386 configure
 else
-	/node_modules/.bin/node-gyp configure
+	./node_modules/.bin/node-gyp configure
 endif
 	./node_modules/.bin/node-gyp build
 
