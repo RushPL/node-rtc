@@ -34,5 +34,11 @@ describe('NodeRTCPeerconnection', function() {
     assert.notEqual(rtcModule.NodeRTCPeerconnection, undefined);
     done();
   });
+
+  it('should accept two json strings into constructor', function(done) {
+    var rtcModule = require('../build/Release/rtc.node');
+    var peerconnection = new rtcModule.NodeRTCPeerconnection('{}', '{}');
+    done();
+  });
 });
 
