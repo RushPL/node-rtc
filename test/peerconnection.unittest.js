@@ -35,10 +35,23 @@ describe('NodeRTCPeerconnection', function() {
     done();
   });
 
-  it('should accept two json strings into constructor', function(done) {
+  it('should throw if no args are passed to constructor', function(done) {
+    var rtcModule = require('../build/Release/rtc.node');
+
+    try {
+      new rtcModule.NodeRTCPeerconnection();
+    }
+    catch (error) {
+      done();
+    }
+
+  });
+
+  it('should accept two json into constructor', function(done) {
     var rtcModule = require('../build/Release/rtc.node');
     var peerconnection = new rtcModule.NodeRTCPeerconnection('{}', '{}');
     done();
   });
+
 });
 
