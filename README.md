@@ -1,3 +1,4 @@
+[![Stories in Ready](http://badge.waffle.io/helloIAmPau/node-rtc.png)](http://waffle.io/helloIAmPau/node-rtc)  
 node-rtc
 ========
 
