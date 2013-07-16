@@ -56,7 +56,10 @@
         "src/peerconnection.cc",
         "src/rtc.cc"
       ],
-      "include_dirs": [ "3d_party/libjingle/trunk/" ],
+      "include_dirs": [ 
+        "3d_party/libjingle/trunk/",
+        "3d_party/jsoncpp/trunk/jsoncpp/include"
+      ],
       "defines": [
         "POSIX"
       ],

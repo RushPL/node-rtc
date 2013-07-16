@@ -2,6 +2,7 @@ all: prepare deps test
 
 prepare:
 	git submodule update --init
+	mkdir -p ./3d_party/jsoncpp; cd ./3d_party/jsoncpp/; svn co http://jsoncpp.svn.sourceforge.net/svnroot/jsoncpp/trunk/;
 	mkdir -p ./3d_party/libjingle; cd ./3d_party/libjingle; ../depot_tools/gclient config http://libjingle.googlecode.com/svn/trunk; GYP_GENERATORS=make ../depot_tools/gclient sync --force;
 
 deps:
