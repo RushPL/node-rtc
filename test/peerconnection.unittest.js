@@ -44,13 +44,23 @@ describe('NodeRTCPeerconnection', function() {
     catch (error) {
       done();
     }
-
   });
 
   it('should accept two json into constructor', function(done) {
     var rtcModule = require('../build/Release/rtc.node');
-    var peerconnection = new rtcModule.NodeRTCPeerconnection('{}', '{}');
+    var peerconnection = new rtcModule.NodeRTCPeerconnection({}, {});
     done();
+  });
+
+  it('should except if first json is invalid', function(done) {
+    var rtcModule = require('../build/Release/rtc.node');
+
+    try {
+      new rtcModule.NodeRTCPeerconnection('an invalid json', {});
+    }
+    catch (error) {
+      done();
+    }
   });
 
 });

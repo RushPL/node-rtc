@@ -1,5 +1,4 @@
 #include "peerconnection.h"
-#include <json/json.h>
 
 using namespace v8;
 
@@ -17,14 +16,11 @@ void NodeRTCPeerconnection::Init(Handle<Object> exports) {
 Handle<Value> NodeRTCPeerconnection::New(const Arguments& args) {
   HandleScope scope;
 
-  if(args.Length() != 2 || !args[0]->IsString() || !args[1]->IsString())
+  if(args.Length() != 2 || !args[0]->IsObject() || !args[1]->IsObject())
     return ThrowException(Exception::Error(String::New("Please check your arguments")));
 
-  Json::Value serverConfig;
-  Json::Reader reader;
-
-  if(!reader.parse("{}", serverConfig))
-    return ThrowException(Exception::Error(String::New("Wrong server configuration passed")));
+  Handle<Object> serverConfigurations = Handle<Object>::Cast(args[0]);
+  //Handle<Array> iceServersFromParam = serverConfigurations->Get(String::New("iceServers"));
 
   return scope.Close(args.This());
 }
