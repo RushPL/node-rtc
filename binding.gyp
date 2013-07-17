@@ -49,7 +49,10 @@
           "../3d_party/libjingle/trunk/out/Debug/libvpx.a",
           "../3d_party/libjingle/trunk/out/Debug/libvpx_intrinsics_sse2.a",
           "../3d_party/libjingle/trunk/out/Debug/libvpx_intrinsics_mmx.a",
-          "../3d_party/libjingle/trunk/out/Debug/libvpx_intrinsics_ssse3.a"
+          "../3d_party/libjingle/trunk/out/Debug/libvpx_intrinsics_ssse3.a",
+          "../3d_party/jsoncpp/trunk/jsoncpp/out/json_reader.o",
+          "../3d_party/jsoncpp/trunk/jsoncpp/out/json_writer.o",
+          "../3d_party/jsoncpp/trunk/jsoncpp/out/json_value.o"
         ]
       },
       "sources": [

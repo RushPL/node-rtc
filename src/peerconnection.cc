@@ -20,7 +20,11 @@ Handle<Value> NodeRTCPeerconnection::New(const Arguments& args) {
   if(args.Length() != 2 || !args[0]->IsString() || !args[1]->IsString())
     return ThrowException(Exception::Error(String::New("Please check your arguments")));
 
+  Json::Value serverConfig;
+  Json::Reader reader;
 
+  if(!reader.parse("{}", serverConfig))
+    return ThrowException(Exception::Error(String::New("Wrong server configuration passed")));
 
   return scope.Close(args.This());
 }
