@@ -63,5 +63,13 @@ describe('NodeRTCPeerconnection', function() {
     }
   });
 
+  it('should set the ice server passed into json', function(done) {
+    var rtcModule = require('../build/Release/rtc.node');
+
+    var STUN_SERVER = { iceServers: [{ url: 'stun:stun.l.google.com:19302' }] };
+    var pc = new rtcModule.NodeRTCPeerconnection(STUN_SERVER, {});
+    done();
+  });
+
 });
 

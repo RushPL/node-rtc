@@ -2,6 +2,8 @@
   "targets": [
     {
       "target_name": "rtc",
+      "cflags!": [ "-fno-exceptions" ],
+      "cflags_cc!": [ "-fno-exceptions" ],
       "link_settings": {
         "libraries": [
           "../3d_party/libjingle/trunk/out/Debug/libjingle_peerconnection.a",
@@ -65,6 +67,9 @@
       ],
       "conditions": [
         [ "OS == 'mac'", {
+            "xcode_settings": {
+              "GCC_ENABLE_CPP_EXCEPTIONS": "YES"
+            },
             "libraries": [
               "../3d_party/libjingle/trunk/out/Debug/libexpat.a",
               "$(SDKROOT)/System/Library/Frameworks/Cocoa.framework",

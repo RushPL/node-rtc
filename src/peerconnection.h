@@ -29,6 +29,7 @@
 #define NODE_RTC_PEERCONNECTION_H
 
 #include <node.h>
+#include <talk/app/webrtc/peerconnectioninterface.h>
 
 class NodeRTCPeerconnection :
   public node::ObjectWrap {
